@@ -84,6 +84,52 @@
 </display:table>
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
+	name="quantities" requestURI="${requestURI}" id="row">
+	
+	<spring:message code="ingredient.name" var="nameIngredientHeader" />
+	<display:column property="ingredient.name" title="${nameIngredientHeader}"
+		sortable="false" />
+	<br />
+	
+	<spring:message code="quantity.quantity" var="quantityHeader" />
+	<display:column property="quantity" title="${quantityHeader}"
+		sortable="false" />
+	<br />
+	
+	<spring:message code="quantity.unit" var="unitHeader" />
+	<display:column property="unit.unit" title="${unitHeader}"
+		sortable="false" />
+	<br />
+	
+</display:table>
+
+<display:table pagesize="5" class="displaytag" keepStatus="true"
+	name="steps" requestURI="${requestURI}" id="row">
+	
+	<spring:message code="step.description" var="descriptionHeader" />
+	<display:column property="description" title="${descriptionHeader}"
+		sortable="false" />
+	<br />
+	
+	<spring:message code="step.picture" var="stepPictureHeader" />
+	<display:column property="picture" title="${stepPictureHeader}"
+		sortable="false" >
+		<img src="${picture}" />
+	</display:column>
+	<br />
+	
+	<spring:message code="step.hints" var="stepHintsHeader" />
+	<display:column title="${stepHintsHeader}" sortable="false">
+		<jstl:forEach var="hint" items=${row.hints }>
+			<jstl:out value="${hint }"></jstl:out>
+			<br />
+		</jstl:forEach>
+	</display:column>
+	<br />
+	
+</display:table>
+
+<display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="comments" requestURI="${requestURI}" id="row">
 	
 	<spring:message code="comment.title" var="titleHeader" />
