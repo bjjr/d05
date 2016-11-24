@@ -27,7 +27,12 @@
 	<spring:message code="curriculum.hobbiesSection" var="hobbiesSectionHeader" />
 	<display:column property="hobbiesSection" title="${hobbiesSectionHeader}" sortable="false" />
 	
-	<!-- PREGUNTAR Y PONERNOS DE ACUERDO DE SI HACER LISTA DE ENDORSERS O MOSTRARLOS DEL TIRÓN -->
+	<spring:message code="curriculum.endorsers" var="endorsers" />
+	<display:column>
+		<a href="endorser/nutritionist/listByCurriculum.do?curriculumId=${row.id}">
+			<spring:message code="curriculum.endorsers" var="endorsers" />
+		</a>
+	</display:column>
 	
 	<display:column>
 		<a href="curriculum/nutritionist/edit.do?curriculumId=${row.id}">

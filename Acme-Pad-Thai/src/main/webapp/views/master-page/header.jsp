@@ -20,7 +20,7 @@
 <div>
 	<ul id="jMenu">
 		<!-- Do not forget the "fNiv" class for the first level links !! -->
-		<security:authorize access="hasRole('ADMIN')">
+		<security:authorize access="hasRole('ADMINISTRATOR')">
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
@@ -40,7 +40,19 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('NUTRITIONIST')">
+			<li><a class="fNiv"><spring:message	code="master.page.nutritionist" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="curriculum/nutritionist/list.do"><spring:message code="master.page.nutritionist.curriculum.list" /></a></li>
+					<li><a href="nutritionist/edit.do"><spring:message code="master.page.nutritionist.edit" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="isAnonymous()">
+			<li class="arrow"></li>
+			<li><a href="nutritionist/create.do"><spring:message code="master.page.nutritionist.create" /></a></li>
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>
 		

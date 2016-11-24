@@ -46,7 +46,7 @@
 	<input type="submit" name="save"
 		value="<spring:message code="curriculum.save" />" />&nbsp; 
 		
-	<jstl:if test="${announcement.id != 0}">
+	<jstl:if test="${curriculum.id != 0}">
 		<input type="submit" name="delete"
 			value="<spring:message code="curriculum.delete" />"
 			onclick="return confirm('<spring:message code="curriculum.confirm.delete" />')" />&nbsp;
