@@ -28,9 +28,20 @@
 				</ul>
 			</li>
 		</security:authorize>
+
+		<security:authorize access="hasRole('NUTRITIONIST')">
+			<li><a class="fNiv"><spring:message code="master.page.nutritionist" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="curriculum/nutritionist/list.do"><spring:message code="master.page.nutritionist.curriculum.list" /></a></li>
+					<li><a href="nutritionist/edit.do"><spring:message code="master.page.nutritionist.edit" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="masterClass/list.do"><spring:message code="master.page.anonymous.masterClass.list" /></a></li>
+			<li><a class="fNiv" href="nutritionist/create.do"><spring:message code="master.page.nutritionist.create" /></a></li>			
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>
 		
@@ -38,6 +49,12 @@
 			<li>
 				<a class="fNiv" href="masterClass/list-unregistered.do">
 					<spring:message code="master.page.masterClass.lu" />
+				</a>
+			</li>
+			<li>
+				<a class="fNiv"> 
+					<spring:message code="master.page.profile" /> 
+			        (<security:authentication property="principal.username" />)
 				</a>
 			</li>
 			<li>
