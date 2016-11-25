@@ -30,6 +30,9 @@
 		<value>/views/curriculum/messages</value>
 		<value>/views/endorser/messages</value>
 		<value>/views/nutritionist/messages</value>
+		<value>/views/recipe/messages</value>
+		<value>/views/user/messages</value>
+		
 	</util:list>
 
 </beans>

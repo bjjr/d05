@@ -7,9 +7,14 @@
       
 <tiles-definitions>
 
-	<definition name="user/list" extends="master.page">	
-		<put-attribute name="title" value="Lista de usuarios" />
-		<put-attribute name="body" value="/views/user/list.jsp" />
+	<definition name="recipe/list" extends="master.page">	
+		<put-attribute name="title" value="Lista de recetas" />
+		<put-attribute name="body" value="/views/recipe/list.jsp" />
+	</definition>
+	
+	<definition name="recipe/display" extends="master.page">	
+		<put-attribute name="title" value="Detalles de la receta" />
+		<put-attribute name="body" value="/views/recipe/display.jsp" />
 	</definition>
 	
 </tiles-definitions>

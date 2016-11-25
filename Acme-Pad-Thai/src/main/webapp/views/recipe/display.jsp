@@ -132,8 +132,8 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="comments" requestURI="${requestURI}" id="row">
 	
-	<spring:message code="comment.title" var="titleHeader" />
-	<display:column property="title" title="${titleHeader}"
+	<spring:message code="comment.title" var="commentTitleHeader" />
+	<display:column property="title" title="${commentTitleHeader}"
 		sortable="false" />
 	<br />
 	
