@@ -20,43 +20,36 @@
 <div>
 	<ul id="jMenu">
 		<!-- Do not forget the "fNiv" class for the first level links !! -->
-		<security:authorize access="hasRole('ADMIN')">
+		<security:authorize access="hasRole('ADMINISTRATOR')">
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="administrator/action-1.do"><spring:message code="master.page.administrator.action.1" /></a></li>
-					<li><a href="administrator/action-2.do"><spring:message code="master.page.administrator.action.2" /></a></li>					
-				</ul>
-			</li>
-		</security:authorize>
-		
-		<security:authorize access="hasRole('CUSTOMER')">
-			<li><a class="fNiv"><spring:message	code="master.page.customer" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="customer/action-1.do"><spring:message code="master.page.customer.action.1" /></a></li>
-					<li><a href="customer/action-2.do"><spring:message code="master.page.customer.action.2" /></a></li>					
+					<li><a href="cook/create.do"><spring:message code="master.page.administrator.create.cook" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">
+			<li><a class="fNiv" href="masterClass/list.do"><spring:message code="master.page.anonymous.masterClass.list" /></a></li>
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
 			<li>
-				<a class="fNiv"> 
-					<spring:message code="master.page.profile" /> 
-			        (<security:authentication property="principal.username" />)
+				<a class="fNiv" href="masterClass/list-unregistered.do">
+					<spring:message code="master.page.masterClass.lu" />
 				</a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="profile/action-1.do"><spring:message code="master.page.profile.action.1" /></a></li>
-					<li><a href="profile/action-2.do"><spring:message code="master.page.profile.action.2" /></a></li>
-					<li><a href="profile/action-3.do"><spring:message code="master.page.profile.action.3" /></a></li>					
-					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
-				</ul>
+			</li>
+			<li>
+				<a class="fNiv" href="masterClass/list-registered.do">
+					<spring:message code="master.page.masterClass.lr" />
+				</a>
+			</li>
+			<li>
+				<a class="fNiv" href="j_spring_security_logout">
+					<spring:message code="master.page.logout" />				
+					(<security:authentication property="principal.username" />)					 
+				</a>
 			</li>
 		</security:authorize>
 	</ul>

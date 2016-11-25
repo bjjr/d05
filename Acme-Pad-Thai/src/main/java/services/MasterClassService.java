@@ -84,7 +84,9 @@ public class MasterClassService {
 	}
 
 	public Collection<MasterClass> findAllByCook() {
-		Assert.isTrue(actorService.checkAuthority("COOK"));
+		//TODO añadir a la lista de cambios
+		Assert.isTrue(actorService.checkAuthority("COOK") ||
+					  actorService.checkAuthority("ADMINISTRATOR"));
 
 		Collection<MasterClass> res;
 		Cook c;
@@ -118,7 +120,9 @@ public class MasterClassService {
 	}
 
 	public MasterClass save(MasterClass m) {
-		Assert.isTrue(actorService.checkAuthority("COOK"));
+		// TODO Añadir a lista de cambios
+		Assert.isTrue(actorService.checkAuthority("COOK") ||
+					  actorService.checkAuthority("ADMINISTRATOR"));
 		Assert.notNull(m, "The masterClass to be saved must cannot be null.");
 
 		MasterClass res;
