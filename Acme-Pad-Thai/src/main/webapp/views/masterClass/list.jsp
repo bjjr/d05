@@ -25,7 +25,7 @@
   	</security:authorize>
   		
   	<spring:message code="masterClass.cook" var="cookHeader" />
-  	<display:column property="cook" title="${cookHeader}" sortable="true"/>
+  	<display:column property="cook.name" title="${cookHeader}" sortable="true"/>
   	
   	<spring:message code="masterClass.title" var="titleHeader" />
   	<display:column property="title" title="${titleHeader}" sortable="true"/>
@@ -45,25 +45,40 @@
   		</jstl:if>
   	</security:authorize>
   	
-  	<security:authorize access="hasAnyRole('COOK', 'ADMINISTRATOR')">
-	  	<spring:message code="masterClass.promoted" var="promotedHeader" />
-	  	<display:column property="promoted" title="${promotedHeader}" />
-	  		
-  		<display:column>
-  			<a href="learningMaterial/cook/list-managed.do=${masterClass.id}">
-	  			<spring:message code="masterClass.learningMaterials" var="learningMaterialsText" />
-	  			<jstl:out value="${learningMaterialsText}" />
-	  		</a>
-  		</display:column>
+  	<security:authorize access="hasRole('COOK')">
+  		<jstl:if test="${registered == null}">
+	  		<display:column>
+	  			<a href="learningMaterial/cook/list-managed.do=${masterClass.id}">
+		  			<spring:message code="masterClass.learningMaterials" var="learningMaterialsText" />
+		  			<jstl:out value="${learningMaterialsText}" />
+		  		</a>
+	  		</display:column>
+  		</jstl:if>
+  	</security:authorize>
+  	
+  	<security:authorize access="hasAnyRole('COOK','ADMINISTRATOR')">
+  		<jstl:if test=${registered == null}>
+	  		<spring:message code="masterClass.promoted" var="promotedHeader" />
+		  	<display:column property="promoted" title="${promotedHeader}" />
+		  		
+	  		<display:column>
+		  		<a href="masterClass/edit.do?masterClassId=${masterClass.id}">
+		  			<spring:message code="masterClass.edit" var="editText" />
+		  			<jstl:out value="${editText}" />
+		  		</a>
+	  		</display:column>
+  		</jstl:if>
 	</security:authorize>
 	
-	<security:authorize access="hasAnyRole('ADMINISTRATOR','COOK')">
-		<display:column>
-	  		<a href="masterClass/edit.do?masterClassId=${masterClass.id}">
-	  			<spring:message code="masterClass.edit" var="editText" />
-	  			<jstl:out value="${editText}" />
-	  		</a>
-  		</display:column>
-	</security:authorize>
-  	
 </display:table>
+
+<security:authorize access="hasRole('COOK')">
+	<jstl:if test="${registered == null}">
+		<div>
+			<a href="masterClass/cook/create.do">
+				<spring:message code="masterClass.create" var="createText" />
+			  	<jstl:out value="${createText}" />
+			</a>
+		</div>
+	</jstl:if>
+</security:authorize>

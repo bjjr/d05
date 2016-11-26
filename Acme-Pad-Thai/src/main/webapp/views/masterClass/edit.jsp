@@ -22,7 +22,7 @@
 			<spring:message code="masterClass.title" />
 		</form:label>
 		
-		<security:authorize access="hasRole('ADMINISTRADOR')">
+		<security:authorize access="hasRole('ADMINISTRATOR')">
 			<form:input path="title" readonly="true"/>
 		</security:authorize>
 		
@@ -38,7 +38,7 @@
 			<spring:message code="masterClass.description"/>
 		</form:label>
 		
-		<security:authorize access="hasRole('ADMINISTRADOR')">
+		<security:authorize access="hasRole('ADMINISTRATOR')">
 			<form:textarea path="description" readonly="true"/>
 		</security:authorize>
 		
