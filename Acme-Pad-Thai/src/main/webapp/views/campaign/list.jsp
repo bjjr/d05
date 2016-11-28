@@ -13,13 +13,13 @@
 
 	<spring:message code="campaign.start" var="start" />
 	<display:column property="start" title="${start}" sortable="true">
-		<jstl:out value="${row.start}" />
+		<jstl:out value="${row.startMoment}" />
 	</display:column>
 
 
 	<spring:message code="campaign.end" var="end" />
 	<display:column property="end" title="${end}" sortable="true">
-		<jstl:out value="${row.end}" />
+		<jstl:out value="${row.endMoment}" />
 	</display:column>
 
 	<spring:message code="campaign.banners" var="bannners" />
@@ -39,7 +39,15 @@
 		<jstl:out value="${row.displayed}" />
 	</display:column>
 
-	<jstl:if test="${row.star==true}">
-		<spring:message code="campaign.star" var="star" />
-	</jstl:if>
+	<spring:message code="campaign.star" var="star" />
+	<display:column property="star" title="${star}" sortable="true">
+		<jstl:catch>
+			<jstl:when test="${row.star == true}">
+				<spring:message code="campaign.trueStar" />
+			</jstl:when>
+			<jstl:otherwise>
+				<spring:message code="campaign.falseStar" />
+			</jstl:otherwise>
+		</jstl:catch>
+	</display:column>
 </display:table>

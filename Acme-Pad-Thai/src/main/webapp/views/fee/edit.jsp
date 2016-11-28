@@ -10,37 +10,22 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="card/customer/edit.do" modelAttribute="card">
+<form:form action="fee/administrator/edit.do" modelAttribute="fee">
+
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<div>
-		<p>Title</p>
-		<form:input path="title" />
-	</div>
-	<div>
-		<p>Text</p>
-		<form:textarea path="text" />
-	</div>
-	<div>
-		<p>Background</p>
-		<form:select id="backgrounds" path="background">
-			<form:option value="0" label="----" />
-			<form:options items="${backgrounds}" itemValue="id" itemLabel="title" />
-		</form:select>
+		<spring:message code="fee.fee" />
+		<form:input path="fee" />
+		<form:errors cssClass="error" path="fee" />
+		
 	</div>
 	<div>
 		<input type="submit" name="save"
-			value="<spring:message code="card.save" />" />;
-		<jstl:if test="${card.id != 0}">
-			<input type="submit" name="delete"
-				value="<spring:message code="card.delete" />"
-				onclick="return confirm('<spring:message code="card.confirm.delete" />')" />&nbsp;
-	</jstl:if>
+			value="<spring:message code="fee.save" />" />;
 		<input type="button" name="cancel"
-			value="<spring:message code="card.cancel" />"
-			onclick="relativeRedir('card/customer/list.do')" /> <br />
+			value="<spring:message code="fee.cancel" />"
+			onclick="/views/welcome/index.jsp" /> <br />
 	</div>
-
-
 
 </form:form>

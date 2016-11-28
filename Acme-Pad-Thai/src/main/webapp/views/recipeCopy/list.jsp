@@ -32,8 +32,16 @@
 		<jstl:out value="${row.nameUser}" />
 	</display:column>
 
-	<jstl:if test="${row.winner==true}">
-		<p>Ganador</p>
-	</jstl:if>
+	<spring:message code="recipeCopy.winner" var="winner" />
+	<display:column property="winner" title="${winner}" sortable="true">
+		<jstl:catch>
+			<jstl:when test="${row.winner== true}">
+				<spring:message code="campaign.trueStar" />
+			</jstl:when>
+			<jstl:otherwise>
+				<spring:message code="campaign.falseStar" />
+			</jstl:otherwise>
+		</jstl:catch>
+	</display:column>
 
 </display:table>
