@@ -33,6 +33,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="recipe/user/list.do"><spring:message code="master.page.recipe.user.list" /></a></li>
+					<li><a href="user/edit.do"><spring:message code="master.page.user.edit" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
