@@ -10,8 +10,8 @@
 
 <!-- Listing grid -->
 
-<display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="curricula" requestURI="${requestURI}" id="row">
+<display:table pagesize="1" class="displaytag" keepStatus="true"
+	name="curriculum" requestURI="${requestURI}" id="row">
 	
 	<!-- Attributes -->
 
@@ -41,3 +41,9 @@
 	</display:column>
 	
 </display:table>
+
+<jstl:if test="${row.id == 0} || ${row.id == null}">
+	<input type="submit" name="addCurriculum"
+		value="<spring:message code="curriculum.addCurriculum" />" 
+		onclick="javascript: relativeRedir('curriculum/nutritionist/create.do');" />&nbsp;
+</jstl:if>

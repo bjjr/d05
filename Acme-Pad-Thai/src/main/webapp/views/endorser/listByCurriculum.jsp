@@ -22,3 +22,9 @@
 	<display:column property="homepage" title="${homepageHeader}" sortable="false" />
 	
 </display:table>
+
+<br />
+<input type="button" name="return"
+		value="<spring:message code="endorser.return" />"
+		onclick="javascript: relativeRedir('curriculum/nutritionist/list.do');" />
+<br />
