@@ -63,13 +63,7 @@
 			<spring:message code="cook.username" />
 		</form:label>
 		
-		<security:authorize access="hasRole('ADMINISTRATOR')">
-			<form:input path="userAccount.username" />
-		</security:authorize>
-		
-		<security:authorize access="hasRole('COOK')">
-			<form:input path="userAccount.username" readonly="true"/>
-		</security:authorize>
+		<form:input path="userAccount.username" />
 		
 		<form:errors class="error" path="userAccount.username" />
 	</div>
