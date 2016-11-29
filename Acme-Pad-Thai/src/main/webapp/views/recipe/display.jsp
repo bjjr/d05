@@ -76,9 +76,13 @@
 	</display:column>
 	<br />
 	
-	<spring:message code="recipe.category.name" var="nameCategoryHeader" />
-	<display:column property="category.name" title="${nameCategoryHeader}"
-		sortable="true"></display:column>
+	<spring:message code="recipe.categories" var="categoriesHeader" />
+	<display:column title="${categoriesHeader}" sortable="false">
+		<jstl:forEach var="category" items=${row.categories }>
+			<jstl:out value="${category.name }"></jstl:out>
+			<br />
+		</jstl:forEach>
+	</display:column>
 	<br />
 	
 </display:table>
