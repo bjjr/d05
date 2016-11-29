@@ -91,6 +91,7 @@ public class CategoryService {
 		
 	}
 	
+	//--------------------------------------------------------------
 	public void deleteChildren(Category category){
 		if(!category.getSubcategories().isEmpty()){
 			for(Category c : category.getSubcategories()){

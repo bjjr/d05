@@ -19,7 +19,7 @@ public interface BillRepository extends JpaRepository<Bill, Integer> {
 
 	@Query("select stddev(b.cost) from Bill b where b.paidMoment != null")
 	Double stddevPaidBills();
-
+	
 	@Query("select avg(b.cost) from Bill b where b.paidMoment = null and (b.creationMoment + 30) >= (CURRENT_DATE)")
 	Double avgUnpaidBills();
 	

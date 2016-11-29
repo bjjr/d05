@@ -1,6 +1,9 @@
 package services;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,7 +41,69 @@ public class ContestServiceTest extends AbstractTest {
 		Assert.isTrue(contest.getTitle()==null);
 		unauthenticate();
 	}
-	
+
+	// Test ---------------------------------------
+		@Test
+		public void testSavecontest() {
+			authenticate("administrator1");
+			Contest contest, saved;
+			Collection<RecipeCopy> recipeCopies = new ArrayList<>();
+
+
+			Calendar end = Calendar.getInstance();
+			end.setTime(new Date()); 
+			end.add(Calendar.YEAR, 15);
+
+			Calendar start = Calendar.getInstance();
+			start.setTime(new Date()); 
+			start.add(Calendar.YEAR, 1);
+			
+			contest = contestService.create();
+
+			contest.setRecipeCopies(recipeCopies);
+			contest.setTitle("Contest Test");
+			contest.setClosingTime(end.getTime());
+			contest.setOpeningTime(start.getTime());
+			
+			saved = contestService.save(contest);
+			Assert.isTrue(contestService.exist(saved.getId()));
+
+			unauthenticate();
+		}
+
+		@Test
+		public void testDeleteContest(){
+			authenticate("administrator1");
+
+			Contest contest, saved;
+			Collection<RecipeCopy> recipeCopies = new ArrayList<>();
+
+
+			Calendar end = Calendar.getInstance();
+			end.setTime(new Date()); 
+			end.add(Calendar.YEAR, 15);
+
+			Calendar start = Calendar.getInstance();
+			start.setTime(new Date()); 
+			start.add(Calendar.YEAR, 1);
+			
+			contest = contestService.create();
+
+			contest.setRecipeCopies(recipeCopies);
+			contest.setTitle("Contest Test");
+			contest.setClosingTime(end.getTime());
+			contest.setOpeningTime(start.getTime());
+			
+			saved = contestService.save(contest);
+			Assert.isTrue(contestService.exist(saved.getId()));
+			
+			contestService.delete(saved);
+
+			Assert.isTrue(!contestService.exist(saved.getId()));
+
+			unauthenticate();
+		}
+		
 	// Test ---------------------------------------
 	@Test
 	public void testMinRecipeCopyPerContest() {
