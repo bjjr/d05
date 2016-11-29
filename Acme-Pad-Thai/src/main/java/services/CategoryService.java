@@ -87,6 +87,11 @@ public class CategoryService {
 		
 	}
 	
+	public void flush(){
+		categoryRepository.flush();
+	}
+	
+	//--------------------------------------------------------------
 	public void deleteChildren(Category category){
 		if(!category.getSubcategories().isEmpty()){
 			for(Category c : category.getSubcategories()){

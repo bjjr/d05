@@ -29,29 +29,24 @@ public class RecipeCopyService {
 
 	// Simple CRUD methods ----------------------------------------------------
 	public RecipeCopy create() {
-		Assert.isTrue(actorService.checkAuthority("ADMINSTRATOR") || actorService.checkAuthority("USER"),
+		Assert.isTrue(actorService.checkAuthority("USER"),
 				"Only an admin or user could create recipeCopy");
-
+		
 		RecipeCopy res;
-
+		
 		res = new RecipeCopy();
 
 		return res;
 	}
 
-	public void save(RecipeCopy recipeCopy) {
+	public RecipeCopy save(RecipeCopy recipeCopy) {
 		Assert.notNull(recipeCopy);
-		Assert.isTrue(actorService.checkAuthority("ADMINSTRATOR") || actorService.checkAuthority("USER"),
-				"Only an admin or user could save recipeCopy");
-
-		recipeCopyRepository.save(recipeCopy);
-	}
-	public void delete(RecipeCopy recipeCopy) {
-		Assert.notNull(recipeCopy);
-		Assert.isTrue(actorService.checkAuthority("ADMINSTRATOR"),
-				"Only an admin could delete recipeCopy");
-
-		recipeCopyRepository.delete(recipeCopy);
+		Assert.isTrue(actorService.checkAuthority("USER"),
+				"Only an user could save recipeCopy");
+		Assert.isTrue(recipeCopy.getId()==0 ,"Recipe copy couldn't be edited");
+		
+		
+		return recipeCopyRepository.save(recipeCopy);
 	}
 	public Collection<RecipeCopy> findAll() {
 		Collection<RecipeCopy> result;
@@ -69,6 +64,17 @@ public class RecipeCopyService {
 		
 		return result;
 	}
+	
+	public void flush(){
+		recipeCopyRepository.flush();
+	}
+	
+	public Boolean exist(int id) {
+		Boolean res;
+		res = recipeCopyRepository.exists(id);
+		return res;
+	}
+
 	
 	// Other business methods -------------------------------------------------
 

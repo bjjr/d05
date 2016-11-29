@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -12,6 +13,9 @@ import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Bill;
+import domain.Campaign;
+import domain.CreditCard;
+import domain.MasterClass;
 import domain.Sponsor;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -40,11 +44,30 @@ public class SponsorServiceTest extends AbstractTest {
 	@Test
 	public void testSaveSponsor() {
 		Sponsor sponsor, saved;
-
-		sponsor = sponsorService.findOne(62);
+		Collection<Campaign> campaigns = new ArrayList<>();
+		CreditCard creditCard = new CreditCard();		
+		Collection<MasterClass> masterClasses = new ArrayList<>();
+		
+		
+		creditCard.setBrandName("Master Card");
+		creditCard.setCvv(111);
+		creditCard.setExpirationMonth(12);
+		creditCard.setExpirationYear(20);
+		creditCard.setHolderName("Amacio Ortega");
+		creditCard.setNumber(452196582);
+		
+		sponsor = sponsorService.create();
 		sponsor.setCompanyName("test company name");
-
+		sponsor.setCampaigns(campaigns);
+		sponsor.setCreditCard(creditCard);
+		sponsor.setEmail("amancio@zara.com");
+		sponsor.setMasterClasses(masterClasses);
+		sponsor.setName("Amancio");
+		sponsor.setPostalAddress("");
+		sponsor.setSurname("Ortega");
+		
 		saved = sponsorService.save(sponsor);
+		sponsorService.flush();
 		Assert.isTrue(sponsorService.exist(saved.getId()));
 
 		unauthenticate();

@@ -104,6 +104,10 @@ public class BillService {
 		return res;
 	}
 
+	public void flush(){
+		billRepository.flush();
+	}
+	
 	// Other business methods -------------------------------------------------
 	/** Media facturas pagadas **/
 	public Double avgPaidBills() {

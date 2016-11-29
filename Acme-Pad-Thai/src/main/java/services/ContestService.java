@@ -40,25 +40,25 @@ public class ContestService {
 		return res;
 	}
 
-	public void save(Contest contest) {
+	public Contest save(Contest contest) {
 		Assert.notNull(contest);
 		if (contest.getId() == 0) {
 			Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"),
 					"Only an admin could save contest");
 		}
-		if (contest.getId() != 0) {
+		else {
 			Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR")
 					|| actorService.checkAuthority("USER"),
 					"Only an admin or user could edit contest");
 
 		}
-		contestRepository.save(contest);
+		return contestRepository.save(contest);
 	}
 
 	public void delete(Contest contest) {
 		Assert.notNull(contest);
 		Assert.isTrue(
-				!contestRepository.findRecipeCopiesByContest(contest.getId())
+				contestRepository.findRecipeCopiesByContest(contest.getId())
 						.isEmpty(), "Could not delete contest with recipes");
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"),
 				"Only an admin could delete contest");
@@ -84,6 +84,16 @@ public class ContestService {
 		return result;
 	}
 
+	public void flush(){
+		contestRepository.flush();
+	}
+	
+	public Boolean exist(int id) {
+		Boolean res;
+		res = contestRepository.exists(id);
+		return res;
+	}
+	
 	// Other business methods -------------------------------------------------
 	public Integer minRecipeCopyPerContest() {
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"),

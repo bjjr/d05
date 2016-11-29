@@ -26,12 +26,12 @@ public class FeeService {
 	}
 
 	// Simple CRUD methods ----------------------------------------------------
-	public void save(Fee fee) {
+	public Fee save(Fee fee) {
 		Assert.notNull(fee);
-		Assert.isTrue(actorService.checkAuthority("ADMINSTRATOR"),
+		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"),
 				"Only an admin could save fee");
 
-		feeRepository.save(fee);
+		return feeRepository.save(fee);
 	}
 	
 	public Fee findOne(int id){
@@ -43,6 +43,15 @@ public class FeeService {
 		return result;
 	}
 	
+	public Boolean exist(int id) {
+		Boolean res;
+		res = feeRepository.exists(id);
+		return res;
+	}
+	
+	public void flush(){
+		feeRepository.flush();
+	}
 	// Other business methods -------------------------------------------------
 	
 	public Fee findFee(){

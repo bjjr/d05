@@ -54,6 +54,9 @@ public class SponsorService {
 	public Sponsor save(Sponsor sponsor) {
 		Assert.notNull(sponsor);
 
+		if(sponsor.getId()!=0){
+			
+		}
 		Sponsor res;
 		res = sponsorRepository.save(sponsor);
 		
@@ -82,6 +85,10 @@ public class SponsorService {
 		Boolean res;
 		res = sponsorRepository.exists(id);
 		return res;
+	}
+	
+	public void flush(){
+		sponsorRepository.flush();
 	}
 
 	// Other business methods -------------------------------------------------

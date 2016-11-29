@@ -220,6 +220,9 @@ public class RecipeService {
 			}
 		}
 		
+		User u = userService.findByPrincipal();
+		Assert.isTrue(u.getRecipes().contains(recipe),"An user only could copy his recipes");
+
 		Assert.isTrue(countLikes >=5 && countDislikes == 0);
 		
 		recipeCopy.setTicker(recipe.getTicker());

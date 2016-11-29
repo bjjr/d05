@@ -98,6 +98,10 @@ public class CampaignService {
 		return res;
 	}
 
+	public void flush(){
+		campaignRepository.flush();
+	}
+	
 	// Other business methods -------------------------------------------------
 	/** Minimo de campañas de un sponsor **/
 	public Integer minCampignsPerSponsor() {
