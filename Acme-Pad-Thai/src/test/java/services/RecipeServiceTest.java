@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import domain.Contest;
+import domain.LikeSA;
 import domain.Recipe;
 
 import utilities.AbstractTest;
@@ -162,6 +163,28 @@ public class RecipeServiceTest extends AbstractTest {
 		for(Recipe r : recipes){
 			System.out.println("Recipe" + r.getId() + "found");
 		}
+	}
+	
+	@Test
+	public void testFindLikes(){
+		Collection<LikeSA> likes;
+		Recipe recipe;
+		
+		recipe = recipeService.findByKeyword("152677-gHsd");
+		likes = recipeService.findLikes(recipe);
+		
+		System.out.println("This recipe has " + likes.size() + " likes");
+	}
+	
+	@Test
+	public void testFindDislikes(){
+		Collection<LikeSA> dislikes;
+		Recipe recipe;
+		
+		recipe = recipeService.findByKeyword("152677-gHsd");
+		dislikes = recipeService.findDislikes(recipe);
+		
+		System.out.println("This recipe has " + dislikes.size() + " dislikes");
 	}
 
 }

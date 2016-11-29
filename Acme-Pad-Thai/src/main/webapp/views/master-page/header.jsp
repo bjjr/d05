@@ -28,7 +28,17 @@
 				</ul>
 			</li>
 		</security:authorize>
-
+		
+		<security:authorize access="hasRole('USER')">
+			<li><a class="fNiv"><spring:message	code="master.page.user" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="recipe/user/list.do"><spring:message code="master.page.recipe.user.list" /></a></li>
+					<li><a href="user/edit.do"><spring:message code="master.page.user.edit" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="hasRole('NUTRITIONIST')">
 			<li><a class="fNiv"><spring:message code="master.page.nutritionist" /></a>
 				<ul>
@@ -40,9 +50,12 @@
 		</security:authorize>
 		
 		<security:authorize access="isAnonymous()">
+			<li class="arrow"></li>
 			<li><a class="fNiv" href="masterClass/list.do"><spring:message code="master.page.anonymous.masterClass.list" /></a></li>
-			<li><a class="fNiv" href="nutritionist/create.do"><spring:message code="master.page.nutritionist.create" /></a></li>			
+			<li><a href="nutritionist/create.do"><spring:message code="master.page.nutritionist.create" /></a></li>
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
+			<li><a href="user/list.do"><spring:message code="master.page.user.list" /></a></li>	
+			<li><a href="recipe/list.do"><spring:message code="master.page.recipe.list" /></a></li>	
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
@@ -68,6 +81,8 @@
 					(<security:authentication property="principal.username" />)					 
 				</a>
 			</li>
+			<li><a href="user/list.do"><spring:message code="master.page.user.list" /></a></li>	
+					<li><a href="recipe/list.do"><spring:message code="master.page.recipe.list" /></a></li>
 		</security:authorize>
 	</ul>
 </div>

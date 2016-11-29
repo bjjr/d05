@@ -273,5 +273,35 @@ public class RecipeService {
 		
 		return result;
 	}
+	
+	public Collection<LikeSA> findLikes(Recipe recipe){
+		Collection<LikeSA> result;
+		
+		result = new ArrayList<LikeSA>();
+		
+		for(LikeSA l : recipe.getLikesSA()){
+			if(l.isLikeSA()){
+				result.add(l);
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	public Collection<LikeSA> findDislikes(Recipe recipe){
+		Collection<LikeSA> result;
+		
+		result = new ArrayList<LikeSA>();
+		
+		for(LikeSA l : recipe.getLikesSA()){
+			if(!l.isLikeSA()){
+				result.add(l);
+			}
+		}
+		
+		return result;
+		
+	}
 
 }
