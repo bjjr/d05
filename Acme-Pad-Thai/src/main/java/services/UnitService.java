@@ -48,6 +48,10 @@ public class UnitService {
 		return result;
 	}
 	
+	public void flush() {
+		unitRepository.flush();
+	}
+	
 	public Unit findOne(int id){
 		Assert.notNull(id);
 		Assert.isTrue(id!=0);

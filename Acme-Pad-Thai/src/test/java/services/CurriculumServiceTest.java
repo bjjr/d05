@@ -91,6 +91,8 @@ public class CurriculumServiceTest extends AbstractTest{
 		curriculum.setEndorsers(endorsers);
 		
 		saved = curriculumService.save(curriculum);
+		curriculumService.flush();
+		
 		curricula = curriculumService.findAll();
 		
 		Assert.isTrue(curricula.contains(saved));

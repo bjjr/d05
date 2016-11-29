@@ -40,6 +40,7 @@ public class UserServiceTest extends AbstractTest {
 
 		user = userService.findOne(53);
 		saved = userService.save(user);
+		userService.flush();
 
 		System.out.println("User" + saved.getId() + "saved");
 	}

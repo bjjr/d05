@@ -52,6 +52,7 @@ public class TextServiceTest extends AbstractTest {
 		
 		Text saved;
 		saved = textService.save(t);
+		textService.flush();
 		
 		Assert.isTrue(textService.exists(saved));
 		Assert.isTrue(t.getTitle().equals(saved.getTitle()));

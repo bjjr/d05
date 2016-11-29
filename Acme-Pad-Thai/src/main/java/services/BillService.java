@@ -71,6 +71,10 @@ public class BillService {
 
 		return billRepository.save(bill);
 	}
+	
+	public void flush() {
+		billRepository.flush();
+	}
 
 	public void delete(Bill bill) {
 		Assert.notNull(bill);

@@ -51,6 +51,7 @@ public class RecipeServiceTest extends AbstractTest {
 
 		recipe = recipeService.findByKeyword("123456-abCD");
 		saved = recipeService.save(recipe);
+		recipeService.flush();
 
 		super.authenticate(null);
 

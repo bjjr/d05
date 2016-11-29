@@ -130,6 +130,10 @@ public class MasterClassService {
 
 		return res;
 	}
+	
+	public void flush() {
+		masterClassRepository.flush();
+	}
 
 	public void delete(MasterClass m) {
 		Assert.isTrue(actorService.checkAuthority("COOK"));

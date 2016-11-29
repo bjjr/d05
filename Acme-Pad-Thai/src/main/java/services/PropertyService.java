@@ -58,6 +58,10 @@ public class PropertyService {
 		return res;
 	}
 	
+	public void flush() {
+		propertyRepository.flush();
+	}
+	
 	public void delete(Property p) {
 		Assert.isTrue(actorService.checkAuthority("NUTRITIONIST"));
 		Assert.notNull(p);

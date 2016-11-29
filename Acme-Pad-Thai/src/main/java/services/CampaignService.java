@@ -61,6 +61,10 @@ public class CampaignService {
 
 		return campaignRepository.save(campaign);
 	}
+	
+	public void flush() {
+		campaignRepository.flush();
+	}
 
 	public void delete(Campaign campaign) {
 		Assert.notNull(campaign);

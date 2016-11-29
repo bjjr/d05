@@ -85,6 +85,10 @@ public class LikeSAService {
 		return result;
 	}
 	
+	public void flush() {
+		likeSARepository.flush();
+	}
+	
 	public void delete(LikeSA likeSA){
 		Assert.notNull(likeSA);
 		Assert.isTrue(likeSA.getId()!=0);

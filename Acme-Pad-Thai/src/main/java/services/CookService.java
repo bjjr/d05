@@ -62,13 +62,24 @@ public class CookService {
 	}
 	
 	public Cook save(Cook c) {
-		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"));
+		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR") ||
+					  actorService.checkAuthority("COOK"));
 		Assert.notNull(c);
 		
 		Cook res;
 		res = cookRepository.save(c);
 		
 		return res;
+	}
+	
+	public Cook findOne(int id) {
+		Cook res;
+		res = cookRepository.findOne(id);
+		return res;
+	}
+	
+	public void flush() {
+		cookRepository.flush();
 	}
 
 	// Other business methods -------------------

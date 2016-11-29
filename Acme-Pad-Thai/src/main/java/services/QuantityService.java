@@ -43,6 +43,10 @@ public class QuantityService {
 		return result;
 	}
 	
+	public void flush() {
+		quantityRepository.flush();
+	}
+	
 	public void delete(Quantity quantity){
 		Assert.notNull(quantity);
 		Assert.isTrue(quantity.getId()!=0);

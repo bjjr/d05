@@ -71,6 +71,7 @@ public class NutritionistServiceTest extends AbstractTest{
 		nutritionist = nutritionistService.findOne(52);
 		
 		saved = nutritionistService.save(nutritionist);
+		nutritionistService.flush();
 		nutritionists = nutritionistService.findAll();
 		
 		Assert.isTrue(nutritionists.contains(saved));

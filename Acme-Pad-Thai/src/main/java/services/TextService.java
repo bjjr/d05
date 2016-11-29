@@ -57,6 +57,10 @@ public class TextService {
 		return res;
 	}
 	
+	public void flush() {
+		textRepository.flush();
+	}
+	
 	public void delete(Text t) {
 		Assert.isTrue(actorService.checkAuthority("COOK"));
 		Assert.notNull(t);

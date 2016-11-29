@@ -76,6 +76,10 @@ public class UserService {
 		return result;
 	}
 
+	public void flush() {
+		userRepository.flush();
+	}
+
 	public Collection<User> findAll() {
 		Collection<User> result;
 

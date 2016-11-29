@@ -51,6 +51,10 @@ public class StepService {
 		
 	}
 	
+	public void flush() {
+		stepRepository.flush();
+	}
+	
 	public void delete(Step step){
 		Assert.notNull(step);
 		Assert.isTrue(step.getId()!=0);

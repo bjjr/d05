@@ -70,6 +70,7 @@ public class IngredientServiceTest extends AbstractTest{
 		
 		ingredient = ingredientService.findOne(150);
 		saved = ingredientService.save(ingredient);
+		ingredientService.flush();
 		
 		super.authenticate(null);
 		

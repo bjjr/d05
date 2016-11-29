@@ -76,6 +76,8 @@ public class CampaignServiceTest extends AbstractTest {
 		campaign.setStartMoment(start.getTime());
 		
 		saved = campaignService.save(campaign);
+		campaignService.flush();
+		
 		Assert.isTrue(campaignService.exist(saved.getId()));
 
 		unauthenticate();

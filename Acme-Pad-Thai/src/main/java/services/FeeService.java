@@ -34,6 +34,10 @@ public class FeeService {
 		feeRepository.save(fee);
 	}
 	
+	public void flush() {
+		feeRepository.flush();
+	}
+	
 	public Fee findOne(int id){
 		Fee result;
 		

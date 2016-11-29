@@ -45,6 +45,7 @@ public class SponsorServiceTest extends AbstractTest {
 		sponsor.setCompanyName("test company name");
 
 		saved = sponsorService.save(sponsor);
+		sponsorService.flush();
 		Assert.isTrue(sponsorService.exist(saved.getId()));
 
 		unauthenticate();

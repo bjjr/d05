@@ -93,6 +93,7 @@ public class SocialIdentityServiceTest extends AbstractTest{
 		socialIdentity.setActor(actor);
 				
 		saved = socialIdentityService.save(socialIdentity);
+		socialIdentityService.flush();
 		socialIdentities = socialIdentityService.findAll();
 				
 		Assert.isTrue(socialIdentities.contains(saved));

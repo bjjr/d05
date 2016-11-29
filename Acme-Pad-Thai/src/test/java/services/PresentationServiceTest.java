@@ -53,6 +53,7 @@ public class PresentationServiceTest extends AbstractTest {
 
 		Presentation saved;
 		saved = presentationService.save(t);
+		presentationService.flush();
 
 		Assert.isTrue(presentationService.exists(saved));
 		Assert.isTrue(t.getTitle().equals(saved.getTitle()));

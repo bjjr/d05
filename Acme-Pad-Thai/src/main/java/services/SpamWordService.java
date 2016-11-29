@@ -77,6 +77,10 @@ public class SpamWordService {
 		return result;
 	}
 	
+	public void flush() {
+		spamWordRepository.flush();
+	}
+	
 	public void delete(SpamWord spamWord){
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"));
 		Assert.notNull(spamWord);

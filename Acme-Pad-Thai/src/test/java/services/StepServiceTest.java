@@ -38,6 +38,7 @@ public class StepServiceTest extends AbstractTest {
 		
 		step = stepService.findOne(77);
 		saved = stepService.save(step);
+		stepService.flush();
 		
 		System.out.println("Step" + saved.getId() + "saved");
 	}

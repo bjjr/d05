@@ -105,6 +105,10 @@ public class MessageService {
 		return result;
 	}
 	
+	public void flush() {
+		messageRepository.flush();
+	}
+	
 	// This method deletes a message from the database
 	
 	public void delete(Message message){

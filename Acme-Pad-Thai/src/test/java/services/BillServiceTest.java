@@ -60,6 +60,8 @@ public class BillServiceTest extends AbstractTest {
 		bill.setDescription("test description");
 
 		saved = billService.save(bill);
+		billService.flush();
+		
 		Assert.isTrue(billService.exist(saved.getId()));
 
 		unauthenticate();

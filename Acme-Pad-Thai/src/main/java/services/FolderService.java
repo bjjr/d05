@@ -82,6 +82,10 @@ public class FolderService {
 		return result;
 	}
 	
+	public void flush() {
+		folderRepository.flush();
+	}
+	
 	public void delete(Folder folder){
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR") || 
 				actorService.checkAuthority("USER") ||

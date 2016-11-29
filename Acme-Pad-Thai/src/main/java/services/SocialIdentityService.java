@@ -89,6 +89,10 @@ public class SocialIdentityService {
 		return result;
 	}
 	
+	public void flush() {
+		socialIdentityRepository.flush();
+	}
+	
 	public void delete(SocialIdentity socialIdentity){
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR") || 
 				actorService.checkAuthority("USER") ||

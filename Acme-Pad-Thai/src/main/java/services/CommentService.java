@@ -76,6 +76,10 @@ public class CommentService {
 		return result;
 	}
 	
+	public void flush() {
+		commentRepository.flush();
+	}
+	
 	public void delete(Comment comment){
 		Assert.notNull(comment);
 		Assert.isTrue(comment.getId()!=0);

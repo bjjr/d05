@@ -78,6 +78,10 @@ public class EndorserService {
 		return result;
 	}
 	
+	public void flush() {
+		endorserRepository.flush();
+	}
+	
 	public void delete(Endorser endorser){
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"));
 		Assert.notNull(endorser);

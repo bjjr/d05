@@ -87,6 +87,8 @@ public class EndorserServiceTest extends AbstractTest{
 		endorser.setCurricula(curricula);
 			
 		saved = endorserService.save(endorser);
+		endorserService.flush();
+		
 		endorsers = endorserService.findAll();
 		
 		Assert.isTrue(endorsers.contains(saved));

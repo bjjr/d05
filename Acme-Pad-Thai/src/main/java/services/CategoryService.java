@@ -53,6 +53,10 @@ public class CategoryService {
 		
 	}
 	
+	public void flush() {
+		categoryRepository.flush();
+	}
+	
 	public void delete(Category category){
 		Assert.isTrue(actorService.checkAuthority("ADMINISTRATOR"));
 		Assert.notNull(category);

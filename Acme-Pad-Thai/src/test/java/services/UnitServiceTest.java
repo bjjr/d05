@@ -44,6 +44,7 @@ public class UnitServiceTest extends AbstractTest {
 		
 		unit = unitService.findOne(34);
 		saved = unitService.save(unit);
+		unitService.flush();
 		
 		super.authenticate(null);
 		

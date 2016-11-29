@@ -59,6 +59,10 @@ public class SponsorService {
 		
 		return res;
 	}
+	
+	public void flush() {
+		sponsorRepository.flush();
+	}
 
 	public Collection<Sponsor> findAll() {
 		Collection<Sponsor> result;

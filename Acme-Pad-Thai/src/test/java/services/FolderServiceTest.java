@@ -95,6 +95,8 @@ public class FolderServiceTest extends AbstractTest{
 		folder.setMessages(messages);
 		
 		saved = folderService.save(folder);
+		folderService.flush();
+		
 		folders = folderService.findAll();
 		
 		Assert.isTrue(folders.contains(saved));

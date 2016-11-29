@@ -46,6 +46,11 @@ public class RecipeCopyService {
 
 		recipeCopyRepository.save(recipeCopy);
 	}
+	
+	public void flush() {
+		recipeCopyRepository.flush();
+	}
+	
 	public void delete(RecipeCopy recipeCopy) {
 		Assert.notNull(recipeCopy);
 		Assert.isTrue(actorService.checkAuthority("ADMINSTRATOR"),

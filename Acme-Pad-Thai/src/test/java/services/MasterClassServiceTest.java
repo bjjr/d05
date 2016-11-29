@@ -94,6 +94,7 @@ public class MasterClassServiceTest extends AbstractTest {
 
 		MasterClass saved;
 		saved = masterClassService.save(m);
+		masterClassService.flush();
 
 		Assert.isTrue(masterClassService.exists(saved.getId()));
 	}

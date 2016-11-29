@@ -59,6 +59,7 @@ public class LikeSAServiceTest extends AbstractTest {
 
 		likeSA = likeSAService.findOne(116);
 		saved = likeSAService.save(likeSA);
+		likeSAService.flush();
 
 		super.authenticate(null);
 

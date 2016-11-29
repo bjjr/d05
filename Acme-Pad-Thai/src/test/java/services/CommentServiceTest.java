@@ -53,6 +53,7 @@ public class CommentServiceTest extends AbstractTest{
 		comment = commentService.findOne(142);
 		
 		saved = commentService.save(comment);
+		commentService.flush();
 		
 		super.authenticate(null);
 		

@@ -53,6 +53,10 @@ public class ActorService {
 		return res;
 	}
 	
+	public void flush() {
+		actorRepository.flush();
+	}
+	
 	// Other business methods -----------------------
 	
 	public Actor findByPrincipal(){

@@ -54,6 +54,10 @@ public class ContestService {
 		}
 		contestRepository.save(contest);
 	}
+	
+	public void flush() {
+		contestRepository.flush();
+	}
 
 	public void delete(Contest contest) {
 		Assert.notNull(contest);

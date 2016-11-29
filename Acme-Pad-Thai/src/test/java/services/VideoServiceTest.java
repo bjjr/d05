@@ -52,6 +52,7 @@ public class VideoServiceTest extends AbstractTest {
 
 		Video saved;
 		saved = videoService.save(v);
+		videoService.flush();
 
 		Assert.isTrue(videoService.exists(saved));
 		Assert.isTrue(v.getTitle().equals(saved.getTitle()));

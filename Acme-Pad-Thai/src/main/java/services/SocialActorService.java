@@ -43,6 +43,10 @@ public class SocialActorService {
 		return result;
 	}
 	
+	public void flush() {
+		socialActorRepository.flush();
+	}
+	
 	// Other business methods -------------------------------
 	
 	public SocialActor findByPrincipal(){

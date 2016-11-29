@@ -110,6 +110,7 @@ public class ActorServiceTest extends AbstractTest {
 		
 		Actor saved;
 		saved = actorService.save(c);
+		actorService.flush();
 		
 		Assert.isTrue(saved.getName().equals("newCook1"));
 		

@@ -100,6 +100,10 @@ public class RecipeService {
 		return result;
 	}
 	
+	public void flush() {
+		recipeRepository.flush();
+	}
+	
 	public void delete(Recipe recipe){
 		Assert.isTrue(actorService.checkAuthority("USER"));
 		Assert.notNull(recipe);

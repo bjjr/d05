@@ -57,6 +57,10 @@ public class PresentationService {
 
 		return res;
 	}
+	
+	public void flush() {
+		presentationRepository.flush();
+	}
 
 	public void delete(Presentation p) {
 		Assert.isTrue(actorService.checkAuthority("COOK"));

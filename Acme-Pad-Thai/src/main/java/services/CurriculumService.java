@@ -78,6 +78,10 @@ public class CurriculumService {
 		return result;
 	}
 	
+	public void flush() {
+		curriculumRepository.flush();
+	}
+	
 	public void delete(Curriculum curriculum){
 		Assert.isTrue(actorService.checkAuthority("NUTRITIONIST"));
 		Assert.notNull(curriculum);

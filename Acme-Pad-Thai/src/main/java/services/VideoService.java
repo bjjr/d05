@@ -67,6 +67,10 @@ public class VideoService {
 		videoRepository.delete(v);
 	}
 	
+	public void flush() {
+		videoRepository.flush();
+	}
+	
 	public Boolean exists(Video v) {
 		Assert.notNull(v);
 		

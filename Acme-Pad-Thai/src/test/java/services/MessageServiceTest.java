@@ -123,7 +123,9 @@ public class MessageServiceTest extends AbstractTest{
 		message.setSubject("SubjectTest");
 		
 		saved = messageService.save(message);
+		messageService.flush();
 		messages = messageService.findAll();
+		
 		
 		Assert.isTrue(messages.contains(saved));
 		

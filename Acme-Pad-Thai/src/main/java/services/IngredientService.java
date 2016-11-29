@@ -76,6 +76,10 @@ public class IngredientService {
 		return result;
 	}
 	
+	public void flush() {
+		ingredientRepository.flush();
+	}
+	
 	public void delete(Ingredient ingredient){
 		Assert.isTrue(actorService.checkAuthority("NUTRITIONIST"));
 		Assert.notNull(ingredient);

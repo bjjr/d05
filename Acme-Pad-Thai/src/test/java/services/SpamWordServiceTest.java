@@ -79,7 +79,9 @@ public class SpamWordServiceTest extends AbstractTest{
 		spamWord.setWord("spamWordTest");
 			
 		saved = spamWordService.save(spamWord);
+		spamWordService.flush();
 		spamWords = spamWordService.findAll();
+		
 		
 		Assert.isTrue(spamWords.contains(saved));
 			

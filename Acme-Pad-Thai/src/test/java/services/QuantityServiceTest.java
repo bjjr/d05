@@ -38,6 +38,7 @@ public class QuantityServiceTest extends AbstractTest {
 		
 		quantity = quantityService.findOne(155);
 		saved = quantityService.save(quantity);
+		quantityService.flush();
 		
 		System.out.println("Quantity" + saved.getId() + "saved");
 	}

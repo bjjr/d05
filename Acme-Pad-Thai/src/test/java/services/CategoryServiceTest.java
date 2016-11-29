@@ -52,6 +52,7 @@ public class CategoryServiceTest extends AbstractTest{
 		category = categoryService.findOne(101);
 		
 		saved = categoryService.save(category);
+		categoryService.flush();
 		
 		super.authenticate(null);
 		

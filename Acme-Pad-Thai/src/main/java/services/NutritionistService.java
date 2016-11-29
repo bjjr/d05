@@ -99,6 +99,10 @@ public class NutritionistService {
 		return result;
 	}
 	
+	public void flush() {
+		nutritionistRepository.flush();
+	}
+	
 	// Other business methods -------------------------------
 	
 	public Nutritionist findByUserAccount(UserAccount userAccount) {
