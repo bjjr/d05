@@ -112,6 +112,8 @@ public class CurriculumServiceTest extends AbstractTest{
 		
 		curriculumService.delete(curriculum);
 		
+		Assert.isTrue(!curriculumService.findAll().contains(curriculum));
+		
 		System.out.println("Curriculum deleted correctly");
 		
 		unauthenticate();
