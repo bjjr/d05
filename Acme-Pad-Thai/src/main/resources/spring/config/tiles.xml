@@ -27,6 +27,7 @@
 		<value>/views/customer/tiles.xml</value>
 		<value>/views/profile/tiles.xml</value>
 		
+		<value>/views/masterClass/tiles.xml</value>
 		<value>/views/curriculum/tiles.xml</value>
 		<value>/views/endorser/tiles.xml</value>
 		<value>/views/nutritionist/tiles.xml</value>

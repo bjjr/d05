@@ -66,6 +66,7 @@ public class ContestServiceTest extends AbstractTest {
 			contest.setOpeningTime(start.getTime());
 			
 			saved = contestService.save(contest);
+			contestService.flush();
 			Assert.isTrue(contestService.exist(saved.getId()));
 
 			unauthenticate();
